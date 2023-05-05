@@ -191,5 +191,17 @@
   <ItemGroup>
     <None Include="Resources\Max_vol1.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\easy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\medium.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hard-removebg-preview.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

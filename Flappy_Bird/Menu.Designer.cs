@@ -44,16 +44,18 @@ namespace Flappy_Bird
             this.panel1 = new System.Windows.Forms.Panel();
             this.button_Quit = new System.Windows.Forms.Button();
             this.button_Setting = new System.Windows.Forms.Button();
+            this.button_Setting_Sound_Max_Vol = new System.Windows.Forms.Button();
+            this.pnlLevel = new System.Windows.Forms.Panel();
             this.panel_Setting = new System.Windows.Forms.Panel();
             this.panel_Setting_Sound = new System.Windows.Forms.Panel();
-            this.button_Setting_Sound_Max_Vol = new System.Windows.Forms.Button();
-            this.button_Setting_Sound_Mute = new System.Windows.Forms.Button();
-            this.button_Setting_Increase_Vol = new System.Windows.Forms.Button();
-            this.button_Setting_Sound_Decrease_Vol = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnLevel = new System.Windows.Forms.Button();
             this.button_Setting_Sound = new System.Windows.Forms.Button();
+            this.lvlEasy = new System.Windows.Forms.Button();
+            this.lvlMedium = new System.Windows.Forms.Button();
+            this.lvlHard = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_skin)).BeginInit();
             this.panel1.SuspendLayout();
+            this.pnlLevel.SuspendLayout();
             this.panel_Setting.SuspendLayout();
             this.panel_Setting_Sound.SuspendLayout();
             this.SuspendLayout();
@@ -62,13 +64,13 @@ namespace Flappy_Bird
             // 
             this.pictureBox_skin.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox_skin.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_skin.Image")));
-            this.pictureBox_skin.Location = new System.Drawing.Point(322, 81);
+            this.pictureBox_skin.Location = new System.Drawing.Point(429, 100);
+            this.pictureBox_skin.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox_skin.Name = "pictureBox_skin";
-            this.pictureBox_skin.Size = new System.Drawing.Size(130, 122);
+            this.pictureBox_skin.Size = new System.Drawing.Size(173, 150);
             this.pictureBox_skin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox_skin.TabIndex = 7;
             this.pictureBox_skin.TabStop = false;
-            this.pictureBox_skin.Click += new System.EventHandler(this.pictureBox_skin_Click);
             // 
             // button_left
             // 
@@ -79,9 +81,10 @@ namespace Flappy_Bird
             this.button_left.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.button_left.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.button_left.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_left.Location = new System.Drawing.Point(212, 110);
+            this.button_left.Location = new System.Drawing.Point(283, 135);
+            this.button_left.Margin = new System.Windows.Forms.Padding(4);
             this.button_left.Name = "button_left";
-            this.button_left.Size = new System.Drawing.Size(71, 68);
+            this.button_left.Size = new System.Drawing.Size(95, 84);
             this.button_left.TabIndex = 6;
             this.button_left.UseVisualStyleBackColor = false;
             this.button_left.Click += new System.EventHandler(this.button_left_Click);
@@ -95,9 +98,10 @@ namespace Flappy_Bird
             this.button_right.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.button_right.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.button_right.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_right.Location = new System.Drawing.Point(480, 110);
+            this.button_right.Location = new System.Drawing.Point(640, 135);
+            this.button_right.Margin = new System.Windows.Forms.Padding(4);
             this.button_right.Name = "button_right";
-            this.button_right.Size = new System.Drawing.Size(71, 68);
+            this.button_right.Size = new System.Drawing.Size(95, 84);
             this.button_right.TabIndex = 5;
             this.button_right.UseVisualStyleBackColor = false;
             this.button_right.Click += new System.EventHandler(this.button_right_Click);
@@ -112,9 +116,10 @@ namespace Flappy_Bird
             this.button_Play.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.button_Play.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_Play.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button_Play.Location = new System.Drawing.Point(26, 3);
+            this.button_Play.Location = new System.Drawing.Point(35, 4);
+            this.button_Play.Margin = new System.Windows.Forms.Padding(4);
             this.button_Play.Name = "button_Play";
-            this.button_Play.Size = new System.Drawing.Size(149, 61);
+            this.button_Play.Size = new System.Drawing.Size(199, 75);
             this.button_Play.TabIndex = 4;
             this.button_Play.UseVisualStyleBackColor = false;
             this.button_Play.Click += new System.EventHandler(this.button_Play_Click);
@@ -124,9 +129,10 @@ namespace Flappy_Bird
             this.label_BestScore.AutoSize = true;
             this.label_BestScore.BackColor = System.Drawing.Color.Transparent;
             this.label_BestScore.Font = new System.Drawing.Font("VNI-Fato", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_BestScore.Location = new System.Drawing.Point(12, 81);
+            this.label_BestScore.Location = new System.Drawing.Point(16, 100);
+            this.label_BestScore.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_BestScore.Name = "label_BestScore";
-            this.label_BestScore.Size = new System.Drawing.Size(154, 28);
+            this.label_BestScore.Size = new System.Drawing.Size(197, 36);
             this.label_BestScore.TabIndex = 8;
             this.label_BestScore.Text = "Highest Score:";
             // 
@@ -134,11 +140,12 @@ namespace Flappy_Bird
             // 
             this.label_pick.AutoSize = true;
             this.label_pick.BackColor = System.Drawing.Color.Transparent;
-            this.label_pick.Font = new System.Drawing.Font("VNI-Canun", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_pick.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_pick.ForeColor = System.Drawing.Color.Black;
-            this.label_pick.Location = new System.Drawing.Point(290, 206);
+            this.label_pick.Location = new System.Drawing.Point(387, 254);
+            this.label_pick.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_pick.Name = "label_pick";
-            this.label_pick.Size = new System.Drawing.Size(210, 23);
+            this.label_pick.Size = new System.Drawing.Size(216, 24);
             this.label_pick.TabIndex = 9;
             this.label_pick.Text = "Pick your Appearance";
             // 
@@ -154,9 +161,10 @@ namespace Flappy_Bird
             this.panel1.Controls.Add(this.button_Quit);
             this.panel1.Controls.Add(this.button_Setting);
             this.panel1.Controls.Add(this.button_Play);
-            this.panel1.Location = new System.Drawing.Point(294, 237);
+            this.panel1.Location = new System.Drawing.Point(392, 292);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(206, 204);
+            this.panel1.Size = new System.Drawing.Size(275, 251);
             this.panel1.TabIndex = 10;
             // 
             // button_Quit
@@ -169,9 +177,10 @@ namespace Flappy_Bird
             this.button_Quit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.button_Quit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_Quit.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button_Quit.Location = new System.Drawing.Point(26, 132);
+            this.button_Quit.Location = new System.Drawing.Point(35, 162);
+            this.button_Quit.Margin = new System.Windows.Forms.Padding(4);
             this.button_Quit.Name = "button_Quit";
-            this.button_Quit.Size = new System.Drawing.Size(149, 61);
+            this.button_Quit.Size = new System.Drawing.Size(199, 75);
             this.button_Quit.TabIndex = 6;
             this.button_Quit.UseVisualStyleBackColor = false;
             this.button_Quit.Click += new System.EventHandler(this.button_Quit_Click);
@@ -186,38 +195,13 @@ namespace Flappy_Bird
             this.button_Setting.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.button_Setting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_Setting.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button_Setting.Location = new System.Drawing.Point(26, 65);
+            this.button_Setting.Location = new System.Drawing.Point(35, 80);
+            this.button_Setting.Margin = new System.Windows.Forms.Padding(4);
             this.button_Setting.Name = "button_Setting";
-            this.button_Setting.Size = new System.Drawing.Size(149, 61);
+            this.button_Setting.Size = new System.Drawing.Size(199, 75);
             this.button_Setting.TabIndex = 5;
             this.button_Setting.UseVisualStyleBackColor = false;
             this.button_Setting.Click += new System.EventHandler(this.button_Setting_Click);
-            // 
-            // panel_Setting
-            // 
-            this.panel_Setting.BackColor = System.Drawing.Color.Transparent;
-            this.panel_Setting.Controls.Add(this.panel_Setting_Sound);
-            this.panel_Setting.Controls.Add(this.button2);
-            this.panel_Setting.Controls.Add(this.button_Setting_Sound);
-            this.panel_Setting.Enabled = false;
-            this.panel_Setting.Location = new System.Drawing.Point(555, 254);
-            this.panel_Setting.Name = "panel_Setting";
-            this.panel_Setting.Size = new System.Drawing.Size(245, 187);
-            this.panel_Setting.TabIndex = 11;
-            this.panel_Setting.Visible = false;
-            // 
-            // panel_Setting_Sound
-            // 
-            this.panel_Setting_Sound.Controls.Add(this.button_Setting_Sound_Max_Vol);
-            this.panel_Setting_Sound.Controls.Add(this.button_Setting_Sound_Mute);
-            this.panel_Setting_Sound.Controls.Add(this.button_Setting_Increase_Vol);
-            this.panel_Setting_Sound.Controls.Add(this.button_Setting_Sound_Decrease_Vol);
-            this.panel_Setting_Sound.Enabled = false;
-            this.panel_Setting_Sound.Location = new System.Drawing.Point(15, 48);
-            this.panel_Setting_Sound.Name = "panel_Setting_Sound";
-            this.panel_Setting_Sound.Size = new System.Drawing.Size(204, 128);
-            this.panel_Setting_Sound.TabIndex = 2;
-            this.panel_Setting_Sound.Visible = false;
             // 
             // button_Setting_Sound_Max_Vol
             // 
@@ -229,95 +213,123 @@ namespace Flappy_Bird
             this.button_Setting_Sound_Max_Vol.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.button_Setting_Sound_Max_Vol.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_Setting_Sound_Max_Vol.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button_Setting_Sound_Max_Vol.Location = new System.Drawing.Point(114, 67);
+            this.button_Setting_Sound_Max_Vol.Location = new System.Drawing.Point(9, 4);
+            this.button_Setting_Sound_Max_Vol.Margin = new System.Windows.Forms.Padding(4);
             this.button_Setting_Sound_Max_Vol.Name = "button_Setting_Sound_Max_Vol";
-            this.button_Setting_Sound_Max_Vol.Size = new System.Drawing.Size(61, 50);
+            this.button_Setting_Sound_Max_Vol.Size = new System.Drawing.Size(81, 62);
             this.button_Setting_Sound_Max_Vol.TabIndex = 10;
             this.button_Setting_Sound_Max_Vol.UseVisualStyleBackColor = false;
             this.button_Setting_Sound_Max_Vol.Click += new System.EventHandler(this.button_Setting_Sound_Max_Vol_Click);
             // 
-            // button_Setting_Sound_Mute
+            // pnlLevel
             // 
-            this.button_Setting_Sound_Mute.BackColor = System.Drawing.Color.Transparent;
-            this.button_Setting_Sound_Mute.BackgroundImage = global::Flappy_Bird.Properties.Resources.Mute_vol;
-            this.button_Setting_Sound_Mute.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button_Setting_Sound_Mute.FlatAppearance.BorderSize = 0;
-            this.button_Setting_Sound_Mute.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button_Setting_Sound_Mute.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button_Setting_Sound_Mute.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_Setting_Sound_Mute.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button_Setting_Sound_Mute.Location = new System.Drawing.Point(21, 72);
-            this.button_Setting_Sound_Mute.Name = "button_Setting_Sound_Mute";
-            this.button_Setting_Sound_Mute.Size = new System.Drawing.Size(61, 50);
-            this.button_Setting_Sound_Mute.TabIndex = 9;
-            this.button_Setting_Sound_Mute.UseVisualStyleBackColor = false;
-            this.button_Setting_Sound_Mute.Click += new System.EventHandler(this.button_Setting_Sound_Mute_Click);
+            this.pnlLevel.Controls.Add(this.lvlHard);
+            this.pnlLevel.Controls.Add(this.lvlMedium);
+            this.pnlLevel.Controls.Add(this.lvlEasy);
+            this.pnlLevel.Enabled = false;
+            this.pnlLevel.Location = new System.Drawing.Point(16, 206);
+            this.pnlLevel.Name = "pnlLevel";
+            this.pnlLevel.Size = new System.Drawing.Size(331, 90);
+            this.pnlLevel.TabIndex = 11;
+            this.pnlLevel.Visible = false;
             // 
-            // button_Setting_Increase_Vol
+            // panel_Setting
             // 
-            this.button_Setting_Increase_Vol.BackColor = System.Drawing.Color.Transparent;
-            this.button_Setting_Increase_Vol.BackgroundImage = global::Flappy_Bird.Properties.Resources.Increse_vol;
-            this.button_Setting_Increase_Vol.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button_Setting_Increase_Vol.FlatAppearance.BorderSize = 0;
-            this.button_Setting_Increase_Vol.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button_Setting_Increase_Vol.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button_Setting_Increase_Vol.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_Setting_Increase_Vol.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button_Setting_Increase_Vol.Location = new System.Drawing.Point(114, 5);
-            this.button_Setting_Increase_Vol.Name = "button_Setting_Increase_Vol";
-            this.button_Setting_Increase_Vol.Size = new System.Drawing.Size(61, 50);
-            this.button_Setting_Increase_Vol.TabIndex = 8;
-            this.button_Setting_Increase_Vol.UseVisualStyleBackColor = false;
-            this.button_Setting_Increase_Vol.Click += new System.EventHandler(this.button_Setting_Increase_Vol_Click);
+            this.panel_Setting.BackColor = System.Drawing.Color.Transparent;
+            this.panel_Setting.Controls.Add(this.panel_Setting_Sound);
+            this.panel_Setting.Controls.Add(this.btnLevel);
+            this.panel_Setting.Controls.Add(this.button_Setting_Sound);
+            this.panel_Setting.Controls.Add(this.pnlLevel);
+            this.panel_Setting.Enabled = false;
+            this.panel_Setting.Location = new System.Drawing.Point(713, 254);
+            this.panel_Setting.Margin = new System.Windows.Forms.Padding(4);
+            this.panel_Setting.Name = "panel_Setting";
+            this.panel_Setting.Size = new System.Drawing.Size(373, 304);
+            this.panel_Setting.TabIndex = 12;
+            this.panel_Setting.Visible = false;
             // 
-            // button_Setting_Sound_Decrease_Vol
+            // panel_Setting_Sound
             // 
-            this.button_Setting_Sound_Decrease_Vol.BackColor = System.Drawing.Color.Transparent;
-            this.button_Setting_Sound_Decrease_Vol.BackgroundImage = global::Flappy_Bird.Properties.Resources.Decrease_vol;
-            this.button_Setting_Sound_Decrease_Vol.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button_Setting_Sound_Decrease_Vol.FlatAppearance.BorderSize = 0;
-            this.button_Setting_Sound_Decrease_Vol.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button_Setting_Sound_Decrease_Vol.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button_Setting_Sound_Decrease_Vol.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_Setting_Sound_Decrease_Vol.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button_Setting_Sound_Decrease_Vol.Location = new System.Drawing.Point(21, 3);
-            this.button_Setting_Sound_Decrease_Vol.Name = "button_Setting_Sound_Decrease_Vol";
-            this.button_Setting_Sound_Decrease_Vol.Size = new System.Drawing.Size(61, 50);
-            this.button_Setting_Sound_Decrease_Vol.TabIndex = 7;
-            this.button_Setting_Sound_Decrease_Vol.UseVisualStyleBackColor = false;
-            this.button_Setting_Sound_Decrease_Vol.Click += new System.EventHandler(this.button_Setting_Sound_Decrease_Vol_Click);
+            this.panel_Setting_Sound.Controls.Add(this.button_Setting_Sound_Max_Vol);
+            this.panel_Setting_Sound.Enabled = false;
+            this.panel_Setting_Sound.Location = new System.Drawing.Point(190, 23);
+            this.panel_Setting_Sound.Margin = new System.Windows.Forms.Padding(4);
+            this.panel_Setting_Sound.Name = "panel_Setting_Sound";
+            this.panel_Setting_Sound.Size = new System.Drawing.Size(96, 74);
+            this.panel_Setting_Sound.TabIndex = 2;
+            this.panel_Setting_Sound.Visible = false;
             // 
-            // button2
+            // btnLevel
             // 
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("VNI-Cooper", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(144, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 38);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "About us";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnLevel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLevel.Font = new System.Drawing.Font("VNI-Cooper", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLevel.Location = new System.Drawing.Point(16, 141);
+            this.btnLevel.Margin = new System.Windows.Forms.Padding(4);
+            this.btnLevel.Name = "btnLevel";
+            this.btnLevel.Size = new System.Drawing.Size(100, 47);
+            this.btnLevel.TabIndex = 1;
+            this.btnLevel.Text = "Level";
+            this.btnLevel.UseVisualStyleBackColor = true;
+            this.btnLevel.Click += new System.EventHandler(this.btnLevel_Click);
             // 
             // button_Setting_Sound
             // 
             this.button_Setting_Sound.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_Setting_Sound.Font = new System.Drawing.Font("VNI-Cooper", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_Setting_Sound.Location = new System.Drawing.Point(22, 4);
+            this.button_Setting_Sound.Location = new System.Drawing.Point(16, 38);
+            this.button_Setting_Sound.Margin = new System.Windows.Forms.Padding(4);
             this.button_Setting_Sound.Name = "button_Setting_Sound";
-            this.button_Setting_Sound.Size = new System.Drawing.Size(75, 38);
+            this.button_Setting_Sound.Size = new System.Drawing.Size(100, 47);
             this.button_Setting_Sound.TabIndex = 0;
             this.button_Setting_Sound.Text = "Sound";
             this.button_Setting_Sound.UseVisualStyleBackColor = true;
             this.button_Setting_Sound.Click += new System.EventHandler(this.button_Setting_Sound_Click);
             // 
+            // lvlEasy
+            // 
+            this.lvlEasy.BackColor = System.Drawing.Color.Transparent;
+            this.lvlEasy.BackgroundImage = global::Flappy_Bird.Properties.Resources.easy;
+            this.lvlEasy.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.lvlEasy.ForeColor = System.Drawing.Color.Transparent;
+            this.lvlEasy.Location = new System.Drawing.Point(3, 3);
+            this.lvlEasy.Name = "lvlEasy";
+            this.lvlEasy.Size = new System.Drawing.Size(84, 80);
+            this.lvlEasy.TabIndex = 0;
+            this.lvlEasy.UseVisualStyleBackColor = false;
+            this.lvlEasy.Click += new System.EventHandler(this.lvlEasy_Click);
+            // 
+            // lvlMedium
+            // 
+            this.lvlMedium.BackColor = System.Drawing.Color.Transparent;
+            this.lvlMedium.BackgroundImage = global::Flappy_Bird.Properties.Resources.medium;
+            this.lvlMedium.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.lvlMedium.ForeColor = System.Drawing.Color.Transparent;
+            this.lvlMedium.Location = new System.Drawing.Point(107, 3);
+            this.lvlMedium.Name = "lvlMedium";
+            this.lvlMedium.Size = new System.Drawing.Size(84, 80);
+            this.lvlMedium.TabIndex = 1;
+            this.lvlMedium.UseVisualStyleBackColor = false;
+            this.lvlMedium.Click += new System.EventHandler(this.lvlMedium_Click);
+            // 
+            // lvlHard
+            // 
+            this.lvlHard.BackgroundImage = global::Flappy_Bird.Properties.Resources.hard;
+            this.lvlHard.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.lvlHard.Location = new System.Drawing.Point(210, 3);
+            this.lvlHard.Name = "lvlHard";
+            this.lvlHard.Size = new System.Drawing.Size(81, 80);
+            this.lvlHard.TabIndex = 2;
+            this.lvlHard.UseVisualStyleBackColor = true;
+            this.lvlHard.Click += new System.EventHandler(this.lvlHard_Click);
+            // 
             // Menu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.BackgroundImage = global::Flappy_Bird.Properties.Resources.background_1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(838, 464);
+            this.ClientSize = new System.Drawing.Size(1117, 571);
             this.Controls.Add(this.panel_Setting);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label_pick);
@@ -325,11 +337,12 @@ namespace Flappy_Bird
             this.Controls.Add(this.pictureBox_skin);
             this.Controls.Add(this.button_left);
             this.Controls.Add(this.button_right);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Menu";
             this.Text = "Menu";
-            this.Load += new System.EventHandler(this.Menu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_skin)).EndInit();
             this.panel1.ResumeLayout(false);
+            this.pnlLevel.ResumeLayout(false);
             this.panel_Setting.ResumeLayout(false);
             this.panel_Setting_Sound.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -348,13 +361,14 @@ namespace Flappy_Bird
         private Panel panel1;
         private Button button_Quit;
         private Button button_Setting;
-        private Panel panel_Setting;
-        private Button button2;
-        private Button button_Setting_Sound;
-        private Panel panel_Setting_Sound;
-        private Button button_Setting_Sound_Decrease_Vol;
         private Button button_Setting_Sound_Max_Vol;
-        private Button button_Setting_Sound_Mute;
-        private Button button_Setting_Increase_Vol;
+        private Panel pnlLevel;
+        private Panel panel_Setting;
+        private Panel panel_Setting_Sound;
+        private Button btnLevel;
+        private Button button_Setting_Sound;
+        private Button lvlHard;
+        private Button lvlMedium;
+        private Button lvlEasy;
     }
 }
