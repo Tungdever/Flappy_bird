@@ -107,8 +107,8 @@ namespace Flappy_Bird
             {
                 pipeBottom1.X = pipeTop1.X = 800;
                 if (pipeBottom1.X - pipeBottom2.X <= 200) pipeBottom1.X = pipeTop1.X += 200;
-                int distance = this.pictureBox_ground.Top; // Khoang cach tu tran` den san
-                                                           //   this.pictureBox_pipe_bot.Size.Height = random.Next(0, distance - this.pictureBox_Flappy.Size.Height - 10);
+                int distance = this.pictureBox_ground.Top; 
+                                                          
                 int min_y = 30;
                 int delta_d = 70;
                 pipeBottom1.Height = random.Next(min_y, distance - coordinateBird.Height - delta_d - min_y);
@@ -124,8 +124,8 @@ namespace Flappy_Bird
             {
                 pipeBottom2.X = pipeTop2.X = 800;
                 if (pipeBottom2.X - pipeBottom1.X <= 200) pipeBottom2.X = pipeTop2.X += 200;
-                int distance = this.pictureBox_ground.Top; // Khoang cach tu tran` den san
-                                                           //   this.pictureBox_pipe_bot.Size.Height = random.Next(0, distance - this.pictureBox_Flappy.Size.Height - 10);
+                int distance = this.pictureBox_ground.Top; 
+                                                           
                 int min_y = 30;
                 int delta_d = 70;
                 pipeBottom2.Height = random.Next(min_y, distance - coordinateBird.Height - delta_d - min_y);
@@ -137,8 +137,8 @@ namespace Flappy_Bird
             if (OVER())
             {
 
-                //    pictureBox_Flappy.Location = new Point(pictureBox_Flappy.Location.X,pictureBox_ground.Top);
-                coordinateBird.Y = pictureBox_ground.Top - coordinateBird.Height - 1; // Nếu để pictureBox_Flappy.Top = pictureBox_ground.Top thì 2 chim sẽ cùng độ cao với sàn ground và bị che mất
+                
+                coordinateBird.Y = pictureBox_ground.Top - coordinateBird.Height - 1;
                 EndGame();
             }
             this.pnlMain.Refresh();
@@ -166,6 +166,19 @@ namespace Flappy_Bird
  
                 this.pnlMain.Refresh();
             }
+            else if (e.KeyCode == Keys.Escape && !game_over)
+            {
+                         
+                pictureBox_GameOver.Image = Properties.Resources.pause_removebg_preview;
+                timer_game.Stop();
+                btnResume.Focus();
+                btnResume.Enabled = true;
+                btnResume.Visible = true;
+                panel_GameOver.Enabled = true;
+                panel_GameOver.Visible = true;
+
+
+            }
         }
 
         private void GameScreen_KeyPress(object sender, KeyPressEventArgs e)
@@ -180,17 +193,20 @@ namespace Flappy_Bird
 
         private void GameScreen_KeyUp(object sender, KeyEventArgs e)
         {
-            // if(game_over == false) , ko nen lam nhu nay , neu dat ca space cho restart va nhay , can phai kiem tra game_over moi lan nhan
+           
             if (e.KeyCode == Keys.Space)
             {
                 gravity = 5;
                 this.pnlMain.Refresh();
-                //  if(e.KeyCode == Keys.)
+                
             }
         }
         void EndGame()
         {
             timer_game.Stop();
+            pictureBox_GameOver.Image = Properties.Resources.game_over_3;
+            btnResume.Enabled = false;
+            btnResume.Visible = false;
             //    pictureBox_Flappy.Top = pictureBox_ground.Top - pictureBox_Flappy.Height - 1;
             //  label_Score.Text += " Game Over !! Press Space or click to the button to PlayAgain or ESC to escape ";
             /*label_Score.Enabled = false;
@@ -218,9 +234,19 @@ namespace Flappy_Bird
             score = 0;
       
             timer_game.Start();
-            panel_GameOver.Enabled = false; // Ban đầu ta sẽ đặt 2 thuộc tính này là False, cả khi ấn restart , chỉ
+            panel_GameOver.Enabled = false; 
             panel_GameOver.Visible = false;
 
+        }
+
+        private void btnResume_Click(object sender, EventArgs e)
+        {
+
+            timer_game.Start();
+            btnResume.Enabled = false;
+            btnResume.Visible = false;
+            panel_GameOver.Enabled = false;
+            panel_GameOver.Visible = false;
         }
 
         private void button_NewGame_Click(object sender, EventArgs e)
@@ -238,26 +264,7 @@ namespace Flappy_Bird
             Application.Exit();
         }
 
-        private void GameScreen_Resize(object sender, EventArgs e)
-        {
-            /*// tính tỷ lệ giữa kích thước ban đầu và kích thước hiện tại của form
-            float scaleX = this.Width / 840f;
-            float scaleY = this.Height / 600f;
-            float scale = Math.Min(scaleX, scaleY);
-
-            // áp dụng tỷ lệ đó cho kích thước và vị trí của các điều khiển bên trong form
-            foreach (Control control in this.Controls)
-            {
-                control.Left = (int)(control.Left * scale / this.formScale);
-                control.Top = (int)(control.Top * scale / this.formScale);
-                control.Width = (int)(control.Width * scale / this.formScale);
-                control.Height = (int)(control.Height * scale / this.formScale);
-                control.Font = new Font(control.Font.FontFamily, control.Font.Size * scale / this.formScale);
-            }
-
-            // lưu lại tỷ lệ phóng hiện tại của form
-            this.formScale = scale;*/
-        }   
+        
 
         private void pnlMain_Paint(object sender, PaintEventArgs e)
         {

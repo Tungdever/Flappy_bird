@@ -103,8 +103,20 @@ namespace Flappy_Bird
 
         private void button_Setting_Click(object sender, EventArgs e)
         {
-            panel_Setting.Enabled = true;
-            panel_Setting.Visible = true;
+            if (panel_Setting.Enabled)
+            {
+                panel_Setting.Enabled = false;
+                panel_Setting.Visible = false;
+                panel_Setting_Sound.Enabled = false;
+                panel_Setting_Sound.Visible = false;
+                pnlLevel.Enabled = false;
+                pnlLevel.Visible = false;
+            }
+            else
+            {
+                panel_Setting.Enabled = true;
+                panel_Setting.Visible = true;
+            }
         }
 
   
@@ -126,14 +138,42 @@ namespace Flappy_Bird
         }
         private void button_Setting_Sound_Click(object sender, EventArgs e)
         {
-            panel_Setting_Sound.Enabled = true;
-            panel_Setting_Sound.Visible = true;
+            if (panel_Setting_Sound.Enabled)
+            {
+                panel_Setting_Sound.Enabled = false;
+                panel_Setting_Sound.Visible = false;
+            }
+            else
+            {
+                panel_Setting_Sound.Enabled = true;
+                panel_Setting_Sound.Visible = true;
+            }
         }
 
         private void btnLevel_Click(object sender, EventArgs e)
         {
-            pnlLevel.Enabled = true;
-            pnlLevel.Visible = true;
+            if (pnlLevel.Enabled)
+            {
+                pnlLevel.Enabled = false;
+                pnlLevel.Visible = false;
+            }
+            else
+            {
+                pnlLevel.Enabled = true;
+                pnlLevel.Visible = true;
+            }
+            if (level == "easy")
+            {
+                lvlEasy.Focus();
+            }
+            else if (level == "medium")
+            {
+                lvlMedium.Focus();
+            }
+            else
+            {
+                lvlHard.Focus();
+            }
         }
 
         private void lvlEasy_Click(object sender, EventArgs e)

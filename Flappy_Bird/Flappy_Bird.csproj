@@ -203,5 +203,11 @@
   <ItemGroup>
     <None Include="Resources\hard-removebg-preview.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pause-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\game_over_3.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
